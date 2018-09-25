@@ -12,7 +12,7 @@ y1 = input("Input y1: ")
 y1 = int(y1)
 
 x2 = input("Input x2: ")
-x2 = int(x2)
+x2 = int(x2) 
 
 y2 = input("Input y2: ")
 y2 = int(y2)
