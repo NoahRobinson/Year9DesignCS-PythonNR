@@ -1,5 +1,8 @@
 import tkinter as tk
 
+
+#Step 1: Create Fake Data
+#This would simpulate what would be pulled from online
 #The times are pulled from moovit
 #Buses - Make 3 busses
 bus5L = ["0603","0617","0631","0644","0657","0710","0723","0736","0749","0802","0815","0828","0841","0855","1505","1530","1550","1610","1630","1650","1710","1730","1750","1809","1827","1849","1911","1933","1955","2017","2039","2101","2123","2145","2207"] 
@@ -18,9 +21,9 @@ root.configure(bg = "#737278")#a6a7a9
 titleLabel = tk.Label(root, text = "TTC Around UCC", font = ("System", 48), background = ("#737278"), foreground = ("#7d8db3"))
 titleLabel.grid(row = 0, column = 0, columnspan = 2, sticky = "NESW")
 
-Label1 = tk.Label(root, text = "Current Time in 24 Hour Clock", font = ("Helvetica", 24), bg = ("#737278"), fg = ("#7d8db3"))
+Label1 = tk.Label(root, text = "Current Time in 24 Hour Clock", font = ("Helvetica", 16), bg = ("#737278"), fg = ("#ffffff"))
 Label1.grid(row = 5, column = 0, columnspan = 2)
-Label2 = tk.Label(root, text = "Scheduled Arrival:", font = ("Helvetica", 28), bg = ("#737278"), fg = ("#7d8db3"))
+Label2 = tk.Label(root, text = "Scheduled Arrival", font = ("Helvetica", 18), bg = ("#737278"), fg = ("#ffffff"))
 Label2.grid(row = 8, column = 0, columnspan = 2)
 
 #Option Menu*************************************************************************************
@@ -30,15 +33,14 @@ def change(*args):
 
 OPTIONS = [
 	"Lonsdale",
-	"Avenue Road East",
-	"Avenue Road West"
+	"Avenue Road"
 ]
 
 var = tk.StringVar(root)
 var.set("Select Stop")
 var.trace("w",change)
 
-DropDownMenu = tk.OptionMenu(root,var,OPTIONS[0],OPTIONS[1],OPTIONS[2])
+DropDownMenu = tk.OptionMenu(root,var,OPTIONS[0],OPTIONS[1])
 DropDownMenu.grid(row = 4, column = 0, columnspan = 2)
 
 def change(*args):
@@ -68,29 +70,31 @@ def onclick(*args):
 	if OPTIONS[0] and TTC[0]:
 		text1.insert(tk.INSERT, bus5L)
 		print(bus5L)
-	if OPTIONS[0] and TTC[1]:
-		text1.insert(tk.INSERT, bus5AL)
-		print(bus5AL)
-	if OPTIONS[1] and TTC[2]:
-		text1.insert(tk.INSERT, Streetcar512AE)
-		print(Streetcar512AE)
-	if OPTIONS[2] and TTC[2]:
-		text1.insert(tk.INSERT, Streetcar512AW)
-		print(Streetcar512AW)
+	else:
+		print("no")
 
 #Enter Button****************************************************************************************
+
+#btn1 = tk.Button(root, background = "RoyalBlue2", text = "Enter", command = onclick)
+#btn1.grid(row = 7, column = 0, columnspan = 2)
 
 btn = tk.Button(root, text = "Enter", background = ("#a6a7a9"), command = onclick)
 btn.grid(row = 7, column = 0, columnspan = 2)
 
 def onReturn(event):
-	print("Time is:")
+	print("Return Pressed")
 
 	value = entry1.get();
 	print(value)
 	entry1.delete(0, 'end')
 	
-#Time Entry Box
+
+
+
+
+
+root.title("GUI Entry With Return")
+
 
 entry1 = tk.Entry(root)
 

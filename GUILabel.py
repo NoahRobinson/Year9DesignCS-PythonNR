@@ -8,6 +8,6 @@ Label1.grid(row = 0 , column = 1)
 
 
 ent1 = tk.Entry(root)
-ent1.pack
+ent1.pack()
 
 root.mainloop()
